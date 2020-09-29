@@ -15,6 +15,10 @@ A chat-based game
       user keeps typing it's added to a queue of unprocessed input
       And then Abby can reply at her leisure
     + Maybe when the user types it resets a timer
+    + **Decided:**
+	    * `<div>` plus a text input
+	    * Inputting text sets a random timer on Abby reply
+	    * Assumption: player won't type too many lines at one time
 - Eliza engine
 	+ Plenty of basic rules
 	+ Core substitutions
@@ -24,8 +28,24 @@ A chat-based game
 		  in same or different node
 		* Record achievement in state cookie
 		* Unlock new script that points to another node
+	+ **Logic:**
+		* In reply function, grab buffer of unprocessed input (from global state cookie)  
+		  and clear buffer
+		* How long has it been since last input?
+			- If it's been a really long time, say so
+			- "I've been lost in here a long time"
+		* Are any keywords or phrases in the input?
+			- Unlock or lock node or path
+			- Change sentiment if needed
+			- Construct response based on script, choose from 
+			  keyword/node/path/sentiment (plus options)
+		* Any tags in the input?
+			- Construct a reply
+		* Failover: generic response
 - Global state object
 	+ Full chat history?
+	+ Time of original interaction
+	+ Time of most recent interaction
 	+ Unprocessed queue of input
 	+ Nodes unlocked
 	+ Abigail's sentiment
@@ -43,8 +63,16 @@ A chat-based game
 ## Definitions
 
 - Keyword: a word that has meaning or performs an action
+- Command: a keyword that does something like tell the player
+  what the game status is, or gets a hint, 
+  Something like "I don't know" or "How am I doing"
 - Variant: a synonym for a keyword
+- Tag: a recognizable word that has no game function but affects how   
+  a reply is constructed. Example "you" in Eliza triggers "We were talking about 
+  you, not me" types of responses
 - Map: conceptual or conversational locations: nodes and paths
+- Option: for any given script chunk, there might be several ways to say it  
+  just in case it ends up getting said more than once
 
 ## Planning
 
