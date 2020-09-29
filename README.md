@@ -44,13 +44,17 @@ A chat-based game
 		* Failover: generic response
 - Global state object
 	+ Full chat history?
+	+ Name of player
 	+ Time of original interaction
 	+ Time of most recent interaction
 	+ Unprocessed queue of input
-	+ Nodes unlocked
+	+ Nodes unlocked and what phraes unlocked them
+		* Can use this for hints
 	+ Abigail's sentiment
-		* Favorability
-		* Energy
+		* Positive
+		* Neutral
+		* Negative
+		* Game over
 - Cookie manager
 	+ How much can we store in a cookie?
 	+ Can we store some amount of the chat text?
