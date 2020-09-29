@@ -11,6 +11,10 @@ A chat-based game
 - Chat window
 	+ &lt;textarea> plus an iframe?
 	+ 2 &lt;textarea>s?
+	+ Has to be a way for Abigail to pause and think, if the
+      user keeps typing it's added to a queue of unprocessed input
+      And then Abby can reply at her leisure
+    + Maybe when the user types it resets a timer
 - Eliza engine
 	+ Plenty of basic rules
 	+ Core substitutions
@@ -21,12 +25,20 @@ A chat-based game
 		* Record achievement in state cookie
 		* Unlock new script that points to another node
 - Global state object
+	+ Full chat history?
+	+ Unprocessed queue of input
+	+ Nodes unlocked
+	+ Abigail's sentiment
+		* Favorability
+		* Energy
 - Cookie manager
 	+ How much can we store in a cookie?
 	+ Can we store some amount of the chat text?
 - A way to represent the map
 	+ Nodes, paths, keywords, goals, dead ends, scripts
 	+ Modular so we can do more games
+	+ Simple sentiment to change available scripts
+		* Each node/path/script has sentiment values
 
 ## Definitions
 
@@ -57,6 +69,8 @@ A chat-based game
 - She wants revenge...on the player?
 - Are ghosts sad?
 - What truths about life can we reveal?
+- She doesn't understand emojis - Why are you just writing punctuation? 
+  What did you mean by that?
 
 
 ## Goals
