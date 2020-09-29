@@ -1,0 +1,41 @@
+.player {
+	font-family: arial;
+	font-size: 11pt;
+	color: blue;
+	float: right;
+}
+
+.computer {
+	font-family: arial;
+	font-size: 11pt;
+	color: red;
+}
+
+.talkButton {
+ 
+}
+
+.inputField {
+
+}
+
+.chatWindow {
+	border: 1px solid grey;
+	width: 360px;
+}
+
+.chatHistory {
+	height: 90px; 
+	width: 350px;
+	float: center;  
+	margin-left: 5px; 
+/*
+	margin-top: 20px;
+	margin-right: 20px; 
+*/
+	overflow: auto;"
+}
+
+.entireChatThing	{
+	width:360px;
+}
