@@ -33,12 +33,22 @@ function processInput(event) {
    event.preventDefault();
 	let playerInput = document.getElementById("inputText").value;
 	let inputHTML = "<br>" + playerInput;
-	let chatHistoryDiv = document.getElementById("chatHistory")
+	let chatHistoryDiv = document.getElementById("chatHistory");
 	let chat = chatHistoryDiv.innerHTML + inputHTML;
 	chatHistoryDiv.innerHTML = chat;
 	chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // = chatHistoryDiv.clientHeight;
 	
 	document.getElementById("inputText").value = "";
+	setTimeout("abigailReply()", 3000);
+}
+
+function abigailReply(){
+	let chatHistoryDiv = document.getElementById("chatHistory");
+	let response;
+	response = "<br /><b>Go on...</b>";
+	let chat = chatHistoryDiv.innerHTML + response;
+	chatHistoryDiv.innerHTML = chat;
+	chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
 }
 
 let form = document.getElementById("chatForm");
