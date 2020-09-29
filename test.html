@@ -25,7 +25,7 @@
 	<!-- a submit button that grabs the contents of the text input and appends it to the div -->
 	<!-- probably avoid actually submitting, just an onClick() to get the input -->
 	
-	<button id="submit" name="Submit" onClick="processInput()">Talk</button>
+	<button id="submit" name="Submit">Talk</button>
 	</form>
 </div>
 <script type="text/javascript">
@@ -45,8 +45,8 @@ function buildResponse(input){
 	return input + " ...I thought so.";
 }
 
-function processInput(event) {
-   event.preventDefault();
+function processInput(e) {
+   e.preventDefault();
 	g.playerInput = document.getElementById("inputText").value;
 	let inputHTML = "<br>" + g.playerInput;
 	let chatHistoryDiv = document.getElementById("chatHistory");
