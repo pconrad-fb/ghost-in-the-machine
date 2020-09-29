@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Test - Ghost in the Machine</title>
+</head>
+<body>
+<div id="entireChatThing" style="width:360px;">
+	<form id="chatForm">
+	<!-- a div for the previous chat stuff -->
+	<!-- use CSS to make her text blue and yours red? -->
+	<!-- sometimes display a tiny GIF that looks like she's typing -->
+	<!-- how do we make it asynchronous so that the player can say something while Abigail's thinking? -->
+	<div id="chatWindow" style="border: 1px solid grey; width: 320px;">
+		<div id="chatHistory" style="height: 90px; width: 300px;  
+	    margin-left: 20px; margin-top: 20px;overflow: auto;">
+		</div>
+		<br />
+		<div><!-- Abby typing gif here, blank or animated of same size--></div>
+	</div>
+	<br />
+	<!-- a text input for the player -->
+	<input type="text" id="inputText"></input>
+	
+	<!-- a submit button that grabs the contents of the text input and appends it to the div -->
+	<!-- probably avoid actually submitting, just an onClick() to get the input -->
+	
+	<button id="submit" name="Submit" onClick="processInput()">Talk</button>
+	</form>
+</div>
+<script type="text/javascript">
+function processInput(event) {
+   event.preventDefault();
+	let playerInput = document.getElementById("inputText").value;
+	let inputHTML = "<br>" + playerInput;
+	let chatHistoryDiv = document.getElementById("chatHistory")
+	let chat = chatHistoryDiv.innerHTML + inputHTML;
+	chatHistoryDiv.innerHTML = chat;
+	chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // = chatHistoryDiv.clientHeight;
+	
+	document.getElementById("inputText").value = "";
+}
+
+let form = document.getElementById("chatForm");
+form.addEventListener('submit', processInput);
+</script>
+</body>
+</html>
