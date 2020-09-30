@@ -28,12 +28,13 @@
 	<button id="submit" class="talkButton" name="Submit">Talk</button>
 	</form>
 </div>
+
+<script type="text/javascript" src="gitm.json"></script>
+<script type="text/javascript" src="gitm.js"></script>
+
 <script type="text/javascript">
 
-let g = {
-	playerInput: ""
 
-}
 
 function setup(){
 // Load app data (map, responses)
@@ -41,9 +42,7 @@ function setup(){
 // Set chat history
 }
 
-function buildResponse(input){
-	return input + " ...I thought so.";
-}
+
 
 function processInput(e) {
    e.preventDefault();
