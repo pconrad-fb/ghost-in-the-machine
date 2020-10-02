@@ -3,3 +3,113 @@ let data = {
 		"I didn't know that"
 	]
 };
+
+let nodes = {
+	"pick_a_number" :
+	{
+		"context" : "number_guess",
+		"default" : "be_serious",
+		"greeting" : "I'm thinking of a number from one to ten. What's your guess?",
+		"phrases" : [
+				"Guess the number?",
+				"Do you have a guess?"
+		],
+		"exits" : {
+			"low_guess" : "too_low",
+			"high_guess" : "too_high",
+			"odd_even" : "odd_even_node"
+		}
+	},
+	"too_low" :
+	{
+		"context" : "number_guess",
+		"default" : "be_serious",
+		"greeting" : "Not bad, but the number is higher than that.",
+		"phrases" : [
+			"Still too low.",
+			"Higher..."
+		],
+		"exits" : {
+			"low_guess" : "too_low",
+			"high_guess" : "too_high",
+			"odd_even" : "odd_even_node"
+		}
+	},
+	"too_high" :
+	{
+		"context" : "number_guess",
+		"default" : "be_serious",
+		"greeting" : "Good guess! Too high, though. Guess a lower number.",
+		"phrases" : [
+			"Guess a little lower.",
+			"Still too high.",
+			"Lower."
+		],
+		"exits" : {
+			"low_guess" : "too_low",
+			"high_guess" : "too_high",
+			"odd_even" : "odd_even_node"
+		}
+	},
+	"odd_even_node" :
+	{
+		"context" : "number_guess",
+		"default" : "be_serious",
+		"greeting" : "Good question. The number is even! What's your guess?",
+		"phrases" : [
+			"Even.",
+			"It's even. Do you have a guess?"
+		],
+		"exits" : {
+			"low_guess" : "too_low",
+			"high_guess" : "too_high",
+			"odd_even" : "odd_even_node"
+		}
+	},
+	"be_serious" :
+	{
+		"context" : "number_guess",
+		"default" : "be_serious",
+		"greeting" : "This is just a number guessing game. I'm sure you're familiar with the idea.",
+		"phrases" : [
+			"I feel like you're not taking this seriously.",
+			"Do you have a guess or not?"
+		],
+		"exits" : {
+			"low_guess" : "too_low",
+			"high_guess" : "too_high",
+			"odd_even" : "odd_even_node"
+		}
+	}
+};
+
+let contexts = {
+	"number_guess" :
+		{
+			"exit" : "6",
+			"sink" : [
+				"We've already done the number thing!",
+				"You already guessed the number.",
+				"You can play again, but the number is always 6."
+			],
+			"first_node" : "pick_a_number",
+			"next_context" : "end"
+		},
+		"another" : "blah"
+}
+
+let start = {
+	"greeting" : "This is a number guess game. Ready to play?",
+	"next_context" : "number_guess"
+};
+
+let end = {
+	"greeting" : "You guessed the number!"
+};
+
+let synonyms = {
+	"low_guess" : [ "1", "2", "3", "4", "5", "one", "uno", "two", "three", "four", "five" ],
+	"6" : [ "six", "sex" ],
+	"high_guess" : [ "7", "8", "9", "10", "seven", "eight", "nine", "ten"],
+	"odd_even" : [ "odd", "even" ]
+};

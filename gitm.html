@@ -21,10 +21,10 @@
 	<br />
 	<!-- a text input for the player -->
 	<input type="text" class="inputField"This id="inputText"></input>
-	
+
 	<!-- a submit button that grabs the contents of the text input and appends it to the div -->
 	<!-- probably avoid actually submitting, just an onClick() to get the input -->
-	
+
 	<button id="submit" class="talkButton" name="Submit">Talk</button>
 	</form>
 </div>
@@ -40,12 +40,13 @@ function setup(){
 // Load app data (map, responses)
 // Get cookie
 // Set chat history
+// Show greeting (start greeting? Most recent node? If most recent interaction is recent, do nothing)
 }
 
 
 
 function processInput(e) {
-   e.preventDefault();
+  e.preventDefault();
 	g.playerInput = document.getElementById("inputText").value;
 	let inputHTML = '<br /><span class="player">' + g.playerInput + '</span>';
 	let chatHistoryDiv = document.getElementById("chatHistory");
@@ -59,7 +60,14 @@ function processInput(e) {
 function chatReply(input){
 	let chatHistoryDiv = document.getElementById("chatHistory");
 	let response;
+	// if we're in the end node, we don't have to build a response anymore.
 	response = '<br /><span class="computer">' + buildResponse(input) + '</span>';
+	// get chat history
+
+	// add response
+
+	// write it to the global
+
 	let chat = chatHistoryDiv.innerHTML + response;
 	chatHistoryDiv.innerHTML = chat;
 	chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
