@@ -123,6 +123,11 @@ it's a good idea to have a single `default` node for each context. That lets you
 re-use "I didn't understand" responses across nodes, making your JSON smaller, but
 also lets you keep these generic replies context-sensitive, making them more realistic.
 
+**Important:** Node names must be unique across the entire game. Keep node names short.
+The list of visited nodes uses the names in plain text, so it's easy to use up a whole
+cookie with node names. Why did I do it this way? To make everything easier to read.
+If you want to use numbers instead, you can.
+
 ### Synonyms
 
 Every keyword should have a robust list of synonyms. Keywords are for navigation
@@ -166,6 +171,8 @@ Cookies autosave change the prefix so people can play more than one GitM game
 
 If you want, you can change the names of the files (and change the names where they're loaded
 in the HTML file)
+
+
 ---
 
 
