@@ -182,7 +182,9 @@ function buildResponse(input){
 
 	// Did player solve the context? Change nodes
 	if(input === contexts[current].exit){
+		console.log("Trying to exit " + current);
 		g.gitm_solved_contexts.push(current);
+		console.log("Pushed" + current);
 		setCookie("gitm_solved_contexts", g.gitm_solved_contexts.join(","));
 		console.log("Matched " + contexts[nodes[g.gitm_current_node].context].exit);
 		current = contexts[current].next_context;
@@ -199,6 +201,7 @@ function buildResponse(input){
 			g.gitm_game_finished = "yes";
 			return nodes.end.greeting;
 		}
+		return nodes[g.gitm_current_node].greeting;
 	}
 
 	// Keyword moves us to a new node? But not if context solved.
