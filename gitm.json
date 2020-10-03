@@ -87,7 +87,7 @@ let nodes = {
 	{
 		"context" : "color_guess",
 		"default" : "n.serious",
-		"greeting" : "Now let's try something different. Guess what color I'm thinking of.",
+		"greeting" : "You guessed the number!<br /> Now let's try something different. Guess what color I'm thinking of.",
 		"phrases" : [
 			"I feel like you're not taking this seriously.",
 			"Do you know your colors?",
