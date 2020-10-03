@@ -31,49 +31,7 @@
 
 <script type="text/javascript" src="gitm.json"></script>
 <script type="text/javascript" src="gitm.js"></script>
-
 <script type="text/javascript">
-
-
-
-function setup(){
-// Load app data (map, responses)
-// Get cookie
-// Set chat history
-// Show greeting (start greeting? Most recent node? If most recent interaction is recent, do nothing)
-}
-
-
-
-function processInput(e) {
-  e.preventDefault();
-	g.playerInput = document.getElementById("inputText").value;
-	let inputHTML = '<br /><span class="player">' + g.playerInput + '</span>';
-	let chatHistoryDiv = document.getElementById("chatHistory");
-	let chat = chatHistoryDiv.innerHTML + inputHTML;
-	chatHistoryDiv.innerHTML = chat;
-	chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // = chatHistoryDiv.clientHeight;
-	document.getElementById("inputText").value = "";
-	setTimeout("chatReply(g.playerInput)", 1000);
-}
-
-function chatReply(input){
-	let chatHistoryDiv = document.getElementById("chatHistory");
-	let response;
-	// if we're in the end node, we don't have to build a response anymore.
-	response = '<br /><span class="computer">' + buildResponse(input) + '</span>';
-	// get chat history
-
-	// add response
-
-	// write it to the global
-
-	let chat = chatHistoryDiv.innerHTML + response;
-	chatHistoryDiv.innerHTML = chat;
-	chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
-	// change global state object
-	// write cookie
-}
 
 let form = document.getElementById("chatForm");
 form.addEventListener('submit', processInput);

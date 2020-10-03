@@ -134,6 +134,9 @@ need to know is that either of those guesses is too high and should go to the
 `too_high` node. Synonyms might include variant spellings, misspellings, or other
 ways of phrasing a keyword or answer.
 
+**Important:** keywords and synonyms must all be lowercase, because input is changed
+to lowercase before processing.
+
 ## How it All Works Together
 
 When the player begins, GitM displays the greeting from the `start` node. No matter
@@ -157,6 +160,12 @@ Variety is accomplished with nodes within each context.
 When the player solves the final context, the `greeting` from the `end` node is
 displayed and the game is over.
 
+## Other Things to Know
+
+Cookies autosave change the prefix so people can play more than one GitM game
+
+If you want, you can change the names of the files (and change the names where they're loaded
+in the HTML file)
 ---
 
 

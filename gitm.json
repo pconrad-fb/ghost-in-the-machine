@@ -107,6 +107,11 @@ let end = {
 	"greeting" : "You guessed the number!"
 };
 
+// This is a hack. Leave it alone.
+contexts.end = {
+	"first_node" : "end"
+};
+
 let synonyms = {
 	"low_guess" : [ "1", "2", "3", "4", "5", "one", "uno", "two", "three", "four", "five" ],
 	"6" : [ "six", "sex" ],
