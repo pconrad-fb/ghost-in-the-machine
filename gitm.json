@@ -5,6 +5,7 @@ let data = {
 };
 
 let nodes = {
+	// Number guess
 	"n.pick" :
 	{
 		"context" : "number_guess",
@@ -80,6 +81,84 @@ let nodes = {
 			"high_guess" : "n.high",
 			"odd_even" : "n.oddeven"
 		}
+	},
+	// Color guess
+	"c.start" :
+	{
+		"context" : "color_guess",
+		"default" : "n.serious",
+		"greeting" : "Now let's try something different. Guess what color I'm thinking of.",
+		"phrases" : [
+			"I feel like you're not taking this seriously.",
+			"Do you know your colors?",
+			"At least you're not still trying to guess a number"
+		],
+		"exits" : {
+			"guess_cooler" : "c.warm",
+			"too_earthy" : "c.earthy",
+			"close" : "c.purple",
+			"number" : "n.pick",
+			"low_guess" : "n.low",
+			"high_guess" : "n.high",
+			"odd_even" : "n.oddeven"
+		}
+	},
+	"c.earthy" :
+	{
+		"context" : "color_guess",
+		"default" : "n.serious",
+		"greeting" : "The color I'm thinking of is not an earth tone. Think more of the sky.",
+		"phrases" : [
+			"It's not so earthy.",
+			"It's a cool color, like the sky on a sunny day.",
+			"At least you're not still trying to guess a number"
+		],
+		"exits" : {
+			"guess_cooler" : "c.warm",
+			"too_earthy" : "c.earthy",
+			"close" : "c.purple",
+			"number" : "n.pick",
+			"low_guess" : "n.low",
+			"high_guess" : "n.high",
+			"odd_even" : "n.oddeven"
+		}
+	},
+	"c.warm" :
+	{
+		"context" : "color_guess",
+		"default" : "n.serious",
+		"greeting" : "Good guess, but the color I'm thinking of is a cooler color.",
+		"phrases" : [
+			"Think 'cool'.",
+			"That was a warm color.",
+			"At least you're not still trying to guess a number!"
+		],
+		"exits" : {
+			"guess_cooler" : "c.warm",
+			"too_earthy" : "c.earthy",
+			"close" : "c.purple",
+			"number" : "n.pick",
+			"low_guess" : "n.low",
+			"high_guess" : "n.high",
+			"odd_even" : "n.oddeven"
+		}
+	},
+	"c.purple" :
+	{
+		"context" : "color_guess",
+		"default" : "n.serious",
+		"greeting" : "You're very close!",
+		"phrases" : [
+			"You already guessed purple.",
+			"It's not a shade of purple.",
+			"At least you're not still trying to guess a number..."
+		],
+		"exits" : {
+			"guess_cooler" : "c.warm",
+			"too_earthy" : "c.earthy",
+			"close" : "c.purple",
+			"number" : "n.pick"
+		}
 	}
 };
 
@@ -93,18 +172,27 @@ let contexts = {
 				"You can play again, but the number is always 6."
 			],
 			"first_node" : "n.pick",
-			"next_context" : "end"
+			"next_context" : "color_guess"
 		},
-		"another" : "blah"
+		"color_guess" :
+			{
+				"exit" : "blue",
+				"sink" : [
+					"The color was blue.",
+					"You already guessed the color.",
+				],
+				"first_node" : "c.start",
+				"next_context" : "end"
+			}
 }
 
-let start = {
+nodes.start = {
 	"greeting" : "This is a number guess game. Ready to play?",
 	"next_context" : "number_guess"
 };
 
-let end = {
-	"greeting" : "You guessed the number!"
+nodes.end = {
+	"greeting" : "You guessed the number and the color! Congratulations! Game over!"
 };
 
 // This is a hack. Leave it alone.
@@ -116,5 +204,10 @@ let synonyms = {
 	"low_guess" : [ "1", "2", "3", "4", "5", "one", "uno", "two", "three", "four", "five" ],
 	"6" : [ "six", "sex" ],
 	"high_guess" : [ "7", "8", "9", "10", "seven", "eight", "nine", "ten"],
-	"odd_even" : [ "odd", "even" ]
+	"odd_even" : [ "odd", "even" ],
+	"start_over" : ["start gitm over", "reset gitm"],
+  "guess_cooler" : [ "orange", "yellow", "red" ],
+	"too_earthy" : [ "green", "brown" ],
+	"close" : [ "purple", "mauve", "violet", "grape" ],
+	"number" : [ "number" ]
 };
